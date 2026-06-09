@@ -1,0 +1,12 @@
+# tells git to ignore our secret keys and passwords
+.env
+
+# tells git to ignore python compiled files
+__pycache__
+*.pyc
+
+# tells git to ignore the virtual environment where our packages live
+.venv
+
+# tells git to ignore mac system files (just in case someone on mac clones it)
+.DS_Store
