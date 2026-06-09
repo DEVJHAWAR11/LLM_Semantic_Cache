@@ -26,6 +26,8 @@ class Settings(BaseSettings):
     class Config:
         # this tells pydantic to look for a file named .env
         env_file = ".env"
+        # We tell Pydantic to ignore any extra variables it finds (like the old REDIS_HOST and REDIS_PORT)
+        extra = "ignore"
 
 # we create one instance of Settings that all other files will import and use
 settings = Settings()
