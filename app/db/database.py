@@ -6,8 +6,12 @@ from app.db.models import Base
 from app.config import settings
 
 # create_async_engine sets up the connection pool to our PostgreSQL database
-# echo=False means it won't print every single SQL query to the terminal
-engine = create_async_engine(settings.DATABASE_URL, echo=False)
+# We set statement_cache_size to 0 to fix the asyncpg compatibility issue with Supabase's connection pooler
+engine = create_async_engine(
+    settings.DATABASE_URL, 
+    echo=False,
+    connect_args={"statement_cache_size": 0}
+)
 
 # async_sessionmaker creates new database sessions for us to use when we want to read/write data
 AsyncSessionLocal = async_sessionmaker(
