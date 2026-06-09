@@ -5,8 +5,8 @@ from app.config import settings
 from app.services.embedder import cosine_similarity
 
 # setting up the connection to Redis. decode_responses=True means we get normal strings back instead of bytes
-# which makes our lives much easier!
-r = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, decode_responses=True)
+# which makes our lives much easier! We use from_url to support both local Docker and Upstash Redis.
+r = redis.from_url(settings.REDIS_URL, decode_responses=True)
 
 # This function searches the cache for a similar question
 async def get_cached_response(new_embedding: list[float]) -> dict | None:

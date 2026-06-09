@@ -3,7 +3,7 @@ import redis.asyncio as redis
 from app.config import settings
 
 # Setting up our Redis connection just like in cache.py
-r = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, decode_responses=True)
+r = redis.from_url(settings.REDIS_URL, decode_responses=True)
 
 # This function checks if an IP address is allowed to make another request
 async def check_rate_limit(ip_address: str):
