@@ -17,8 +17,8 @@ async def call_llm(query: str) -> tuple[str, int]:
                     "content": query,
                 }
             ],
-            # This is the specific model we were told to use
-            model="llama3-70b-8192",
+            # We use a newer supported model because the original one was decommissioned
+            model="llama-3.3-70b-versatile",
         )
         
         # We extract the text answer from the API response
