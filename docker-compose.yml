@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  redis:
+    # We use alpine versions because they are lightweight and download faster
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+  postgres:
+    # We use postgres 15 for our analytics database
+    image: postgres:15-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: llm_cache
+    ports:
+      - "5432:5432"
+    restart: always
