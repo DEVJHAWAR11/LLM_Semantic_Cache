@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+redis
+groq
+httpx
+pydantic-settings
+sqlalchemy
+asyncpg
+greenlet
