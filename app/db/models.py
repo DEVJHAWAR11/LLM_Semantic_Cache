@@ -34,5 +34,5 @@ class QueryLog(Base):
     # estimated_cost_usd stores how much the Groq call cost. It is empty if cache_hit is True.
     estimated_cost_usd = Column(Float, nullable=True)
     
-    # created_at stores the exact time the request happened. It defaults to the current UTC time.
-    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    # created_at stores the exact time the request happened. Using timezone=True fixes asyncpg datetime errors.
+    created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
