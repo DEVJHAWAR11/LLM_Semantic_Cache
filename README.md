@@ -53,10 +53,7 @@ This project is a high-performance semantic caching layer for Large Language Mod
    - `redis`: In-memory data store for the cache and rate limiter.
    - `postgres`: Analytics database to store query logs.
    - `fastapi_app`: The main application running on port `8000`.
-
-4. **Test the API:**
-   Once running, you can access the interactive API docs at:
-   [http://localhost:8000/docs](http://localhost:8000/docs)
+     
 
 ## API Endpoints
 
